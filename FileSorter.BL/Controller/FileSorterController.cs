@@ -40,7 +40,12 @@ namespace FileSorter.BL.Controller
 
             foreach (string directory in directories)
             {
-                files.AddRange(GetFilesFromDirectory(directory));
+                string[] newFiles = GetFilesFromDirectory(directory);
+
+                if (newFiles != null)
+                {
+                    files.AddRange(newFiles);
+                }
             }
 
             if (files.Count > 0)
